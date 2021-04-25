@@ -1,0 +1,15 @@
+plugins {
+    id 'java-library'
+}
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+dependencies {
+	implementation group: 'commons-io', name: 'commons-io', version: '2.8.0'
+	
+    // Use JUnit test framework
+    testImplementation 'junit:junit:4.12'
+}
