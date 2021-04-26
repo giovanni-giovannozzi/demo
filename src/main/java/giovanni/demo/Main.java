@@ -28,6 +28,8 @@ public class Main {
 		}
 		inputParser.printResultToConsole();
 		inputParser.printResultToFile();
+		
+		VisualChecker.check();
 	}
 
 	private static void printUsage() {

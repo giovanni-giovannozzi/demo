@@ -9,8 +9,6 @@ import java.util.List;
 
 import org.apache.commons.io.FileUtils;
 
-import giovanni.demo.exception.InvalidLineException;
-
 public class InputParser {
 	private String heading = null;
 	
@@ -36,13 +34,7 @@ public class InputParser {
 		}
 		
 		for(String line: lines) {
-			CheckResult cr;
-			try {
-				cr = CheckResult.checkNumber(line);
-			} catch (InvalidLineException e) {
-				e.printStackTrace();
-				continue;
-			}
+			CheckResult cr = CheckResult.checkNumber(line);
 			
 			switch(cr.getStatus()) {
 			case ACCEPTABLE:

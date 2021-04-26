@@ -3,20 +3,20 @@ package giovanni.demo.parser;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import giovanni.demo.exception.InvalidLineException;
-
 public class CheckResult {
 	private String line;
 	private Status status;
 	private String correction;
+	private String number;
 	
 	private static final Pattern pattern = Pattern.compile("\\d+");
 
-	private CheckResult(String line, Status status, String correction) {
+	private CheckResult(String line, Status status, String correction, String number) {
 		super();
 		this.line = line;
 		this.status = status;
 		this.correction = correction;
+		this.number = number;
 	}
 
 	public String getLine() {
@@ -30,18 +30,25 @@ public class CheckResult {
 	public String getCorrection() {
 		return correction;
 	}
+	
+	public String getNumber() {
+		return number;
+	}
 
 	@Override
 	public String toString() {
-		return "CheckResult [line=" + line + ", status=" + status + ", correction=" + correction + "]";
+		return "CheckResult [line=" + line + ", status=" + status + ", correction=" + correction + ", number=" + number + "]";
 	}
 
-	public static CheckResult checkNumber(String line) throws InvalidLineException {
+	public static CheckResult checkNumber(String line) {
 		String parts[] = line.split(",");
+		String number = null;
 		if (parts.length < 2) {
-			throw new InvalidLineException(line);
+			number = line;
 		}
-		final String number = parts[1];
+		else {
+			number = parts[1];
+		}
 		Matcher matcher = pattern.matcher(number);
 		int count = 0;
 		String match = null;
@@ -57,11 +64,11 @@ public class CheckResult {
 		}
 
 		if (count > 1) {
-			return new CheckResult(line, Status.INCORRECT, null);
+			return new CheckResult(line, Status.INCORRECT, null, null);
 		}
 		
 		if(match.length() == number.length()) {
-			return new CheckResult(line, Status.ACCEPTABLE, null);
+			return new CheckResult(line, Status.ACCEPTABLE, null, match);
 		}
 
 		String correction = "";
@@ -71,7 +78,7 @@ public class CheckResult {
 		if (number.length() > end) {
 			correction = correction + number.substring(end, number.length());
 		}
-		return new CheckResult(parts[0] + "," + number, Status.CORRECTED, "Removed " + correction);
+		return new CheckResult(parts[0] + "," + number, Status.CORRECTED, "Removed " + correction, match);
 	}
 
 }
