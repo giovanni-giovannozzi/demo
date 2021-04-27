@@ -1,14 +1,14 @@
 # Description
 This application processes a csv file in the following format:  
-
+```
 id,sms_phone  
 103343262,6478342944  
 103426540,84528784843  
 103352136,_DELETED_1488176172  
 103266195,639156553262_DELETED_1486721886
-
-and check for correctness of the phone numbers.  
-The output of the processing is printed in standard output and in three files (one for accepted numbers, one for incorrect numbers and one for corrected numbers), placed in same directory where input file resides. Afterwards a form allows to check number correctness.
+```
+and checks for correctness of the phone numbers.  
+The output of the processing is printed in standard output and in three files (one for accepted numbers, one for incorrect numbers and one for corrected numbers), placed in the same directory where input file resides. Afterwards a form allows to check number's correctness.
 
 # Requirements
 - Java (tested with Java 1.8)
@@ -19,7 +19,7 @@ To build the application cd into the project directory (where build.gradle file 
 `gradle jar`
 
 # Running
-The run the application cd into the project directory and run the java command as follows:  
+To run the application cd into the project directory and run the java command as follows:  
 `java -jar build\libs\demo-main.jar <inputfile>`  
 *inputfile* must be the path to the .csv files containing the list of numbers  
 If no inputfile parameter is passed, usage is printed.  
