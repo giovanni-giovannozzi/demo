@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -62,16 +63,16 @@ public class InputParser {
 		System.out.println();
 	}
 	
-	public void printResultToFile() {
+	public void printResultToFile() throws UnsupportedEncodingException {
 		printFile(this.directory, "acceptableNumbers.csv", this.acceptableNumbers, this.heading);
 		printFile(this.directory, "correctedNumbers.csv", this.correctedNumbers, this.heading + ",Correction");
 		printFile(this.directory, "incorrectNumbers.csv", this.incorrectNumbers, this.heading);
 	}
 	
-	private static void printFile(File directory, String name, ArrayList<CheckResult> list, String heading) {
+	private static void printFile(File directory, String name, ArrayList<CheckResult> list, String heading) throws UnsupportedEncodingException {
 		File outputFile = new File(directory, name);
 		try {
-			print(heading, list, new PrintStream(outputFile));
+			print(heading, list, new PrintStream(outputFile, "UTF-8"));
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}

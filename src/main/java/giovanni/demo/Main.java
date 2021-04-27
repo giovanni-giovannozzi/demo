@@ -2,11 +2,12 @@ package giovanni.demo;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 
 import giovanni.demo.parser.InputParser;
 
 public class Main {
-	public static void main(String args[]) {
+	public static void main(String args[]) throws UnsupportedEncodingException {
 		if (args.length < 1) {
 			System.out.println("Parameter inputFile missing");
 			printUsage();
