@@ -13,7 +13,14 @@ import javax.swing.SwingConstants;
 import giovanni.demo.parser.CheckResult;
 import giovanni.demo.parser.Status;
 
+/**
+ * @author giovanni
+ *
+ */
 public class VisualChecker {
+	/**
+	 * Displays a form for checking a number chosen at will
+	 */
 	public static void check() {
 		JPanel panel = new JPanel(new BorderLayout(5, 5));
 
@@ -35,8 +42,12 @@ public class VisualChecker {
 
 			Status status = cr.getStatus();
 			String message = "Number is " + status.toString();
-			if (status == Status.CORRECTED) {
+			switch(status) {
+			case CORRECTED:
 				message = message + " - " + cr.getNumber() + " - " + cr.getCorrection();
+				break;
+			case INCORRECT:
+				message = message + " - Reason: " + cr.getCorrection();
 			}
 
 			JOptionPane.showMessageDialog(new JFrame(), message, "Check result", JOptionPane.INFORMATION_MESSAGE);

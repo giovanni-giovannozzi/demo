@@ -3,6 +3,12 @@ package giovanni.demo.parser;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * 
+ * @author giovanni
+ * Contains the result of the check on the number
+ *
+ */
 public class CheckResult {
 	private String line;
 	private Status status;
@@ -11,6 +17,13 @@ public class CheckResult {
 	
 	private static final Pattern pattern = Pattern.compile("\\d+");
 
+	/**
+	 * Creates a new CheckResult
+	 * @param line contains the string to put in the output file
+	 * @param status the status of the check
+	 * @param correction eventual correction applied to the number
+	 * @param number number extracted from the line
+	 */
 	private CheckResult(String line, Status status, String correction, String number) {
 		super();
 		this.line = line;
@@ -40,6 +53,11 @@ public class CheckResult {
 		return "CheckResult [line=" + line + ", status=" + status + ", correction=" + correction + ", number=" + number + "]";
 	}
 
+	/**
+	 * This method takes the content of the line in input or directly a number to be checked for correctness
+	 * @param line line of the input file to be processed o the number to be checked
+	 * @return the result of the check
+	 */
 	public static CheckResult checkNumber(String line) {
 		String parts[] = line.split(",");
 		String number = null;
@@ -64,7 +82,7 @@ public class CheckResult {
 		}
 
 		if (count > 1) {
-			return new CheckResult(line, Status.INCORRECT, null, null);
+			return new CheckResult(line, Status.INCORRECT, "Number pattern occurs more than once in the input", null);
 		}
 		
 		if(match.length() == number.length()) {
