@@ -8,7 +8,7 @@ id,sms_phone
 103266195,639156553262_DELETED_1486721886
 ```
 and checks for correctness of the phone numbers.  
-The output of the processing is printed in standard output and in three files (one for accepted numbers, one for incorrect numbers and one for corrected numbers), placed in the same directory where input file resides. Afterwards a form allows to check number's correctness.
+The output of the processing is printed in standard output and in three files (one for accepted numbers, one for incorrect numbers and one for corrected numbers), placed in the same directory where input file resides. Afterwards a form allows to check the correctness of a number chosen at will.
 
 # Requirements
 - Java (tested with Java 1.8)
@@ -23,7 +23,7 @@ To run the application cd into the project directory and run the java command as
 `java -jar build\libs\demo-main.jar <inputfile>`  
 *inputfile* must be the path to the .csv files containing the list of numbers  
 If no inputfile parameter is passed, usage is printed.  
-After inputfile has been parsed a form appears.  
+After the inputfile has been processed, a form appears.  
 ![Input form](form.jpg)  
 Insert some text and press OK button to validate.  
 Press Cancel button to exit the application.
