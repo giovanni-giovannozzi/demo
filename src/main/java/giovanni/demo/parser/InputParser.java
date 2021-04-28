@@ -1,7 +1,9 @@
 package giovanni.demo.parser;
 
 import java.io.File;
+import java.io.FileDescriptor;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.io.UnsupportedEncodingException;
@@ -63,8 +65,9 @@ public class InputParser {
 	
 	/**
 	 * It is responsible for the printing to the console of the three categories of check results
+	 * @throws UnsupportedEncodingException 
 	 */
-	public void printResultToConsole() {
+	public void printResultToConsole() throws UnsupportedEncodingException {
 		printConsole("Acceptable numbers", this.heading, this.acceptableNumbers);
 		printConsole("Corrected numbers", this.heading + ",Correction", this.correctedNumbers);
 		printConsole("Incorrect numbers", this.heading, this.incorrectNumbers);
@@ -75,9 +78,11 @@ public class InputParser {
 	 * @param title The title to give to the paragraph
 	 * @param heading The heading of the csv list
 	 * @param list The list of CheckResult
+	 * @throws UnsupportedEncodingException 
 	 */
-	private static void printConsole(String title, String heading, ArrayList<CheckResult> list) {
+	private static void printConsole(String title, String heading, ArrayList<CheckResult> list) throws UnsupportedEncodingException {
 		System.out.println(title);
+		System.setOut(new PrintStream(new FileOutputStream(FileDescriptor.out), true, "UTF-8"));
 		print(heading, list, System.out);
 		System.out.println();
 	}
