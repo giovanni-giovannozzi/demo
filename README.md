@@ -16,7 +16,8 @@ The output of the processing is printed in standard output and in three files (o
 
 # Building
 To build the application cd into the project directory (where build.gradle file resides) and run Gradle's jar task (if gradle script is not in the path, full path needs to be specified)  
-`gradle jar`
+`gradle jar`  
+The output will go in the build/libs directory.
 
 # Running
 To run the application cd into the project directory and run the java command as follows:  
@@ -35,4 +36,5 @@ Cd into the project directory and run Gradle's test task to run them:
 
 # Creating the Javadoc
 To create the Javadoc cd into the project directory and run Gradle's javadoc task  
-`gradle javadoc`
+`gradle javadoc`  
+The output will go in the build\docs\javadoc directory.
