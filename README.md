@@ -32,7 +32,7 @@ Press Cancel button to exit the application.
 # Testing
 Application uses jUnit to run some tests.  
 Cd into the project directory and run Gradle's test task to run them:  
-`gradle test`
+`gradle test`  
 After test is run, a report will be available in the directory build/reports/test
 
 # Creating the Javadoc
