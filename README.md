@@ -15,12 +15,12 @@ The output of the processing is printed in standard output and in three files (o
 - Gradle (tested with Gradle 7.0)
 
 # Building
-To build the application cd into the project directory (where build.gradle file resides) and run Gradle's jar task (if gradle script is not in the path, full path needs to be specified)  
+To build the application, cd into the project directory (where build.gradle file resides) and run Gradle's jar task (if gradle script is not in the path, full path needs to be specified)  
 `gradle jar`  
 The output will go in the build/libs directory.
 
 # Running
-To run the application cd into the project directory and run the java command as follows:  
+To run the application, cd into the project directory and run the java command as follows:  
 `java -jar build\libs\demo-main.jar <inputfile>`  
 *inputfile* must be the path to the .csv files containing the list of numbers  
 If no inputfile parameter is passed, usage is printed.  
@@ -33,8 +33,9 @@ Press Cancel button to exit the application.
 Application uses jUnit to run some tests.  
 Cd into the project directory and run Gradle's test task to run them:  
 `gradle test`
+After test is run, a report will be available in the directory build/reports/test
 
 # Creating the Javadoc
-To create the Javadoc cd into the project directory and run Gradle's javadoc task  
+To create the Javadoc, cd into the project directory and run Gradle's javadoc task  
 `gradle javadoc`  
-The output will go in the build\docs\javadoc directory.
+The output will go in the build/docs/javadoc directory.
