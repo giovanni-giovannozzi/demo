@@ -85,6 +85,10 @@ public class CheckResult {
 			return new CheckResult(line, Status.INCORRECT, "Number pattern occurs more than once in the input", null);
 		}
 		
+		if (match == null) {
+			return new CheckResult(line, Status.INCORRECT, "No number found", null);
+		}
+		
 		if(match.length() == number.length()) {
 			return new CheckResult(line, Status.ACCEPTABLE, null, match);
 		}
