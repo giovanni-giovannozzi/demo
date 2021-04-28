@@ -48,6 +48,9 @@ public class VisualChecker {
 				break;
 			case INCORRECT:
 				message = message + " - Reason: " + cr.getCorrection();
+				break;
+			case ACCEPTABLE:
+				break;
 			}
 
 			JOptionPane.showMessageDialog(new JFrame(), message, "Check result", JOptionPane.INFORMATION_MESSAGE);
